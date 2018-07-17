@@ -24,7 +24,7 @@ function create() {
     platforms = game.add.group();
     
     // Here we create the ground.
-    ground = platforms.create(0, game.world.height - 10, 'ground');
+    ground = platforms.create(20, game.world.height - 10, 'ground');
     
     //  Double the size of the platform (vertically by 2 and horizontally by 2)
     ground.scale.setTo(10, 20);
@@ -43,7 +43,7 @@ function create() {
     game.physics.arcade.enable(player);
     
     //  Player physics properties.
-    player.body.gravity.y = 800;
+    player.body.gravity.y = 1000;
     
     //  Our controls.
     keys = game.input.keyboard.createCursorKeys();
@@ -53,8 +53,10 @@ function create() {
     player.animations.add('right', [7, 8, 9, 10, 12, 13], 10, true);
     
     //  Now let's create two ledges
-    var ledge1 = platforms.create(400, 400, 'ground');
-    var ledge2 = platforms.create(-150, 250, 'ground');
+    var ledge1 = platforms.create(100, 0, 'ground');
+    var ledge2 = platforms.create(0, 100, 'ground');
+    
+    platforms.scale.setTo(2, 2)
     
     // Enable physics on the platforms so you can collide with them
     game.physics.arcade.enable(platforms);
@@ -87,7 +89,7 @@ function update() {
     }
     
     if (keys.up.isDown && player.body.touching.down) {
-        player.body.velocity.y = -800;
+        player.body.velocity.y = -700;
     }
 }
 
