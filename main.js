@@ -27,7 +27,7 @@ function create() {
     ground = platforms.create(20, game.world.height - 10, 'ground');
     
     //  Double the size of the platform (vertically by 2 and horizontally by 2)
-    ground.scale.setTo(10, 20);
+    ground.scale.setTo(0.5, 0.5);
     
     //  We need to enable physics on the ground so that it can move and collide with stuff
     game.physics.arcade.enable(ground);
@@ -53,10 +53,10 @@ function create() {
     player.animations.add('right', [7, 8, 9, 10, 12, 13], 10, true);
     
     //  Now let's create two ledges
-    var ledge1 = platforms.create(100, 0, 'ground');
-    var ledge2 = platforms.create(0, 100, 'ground');
+    var ledge1 = platforms.create(11, 0, 'ground');
+    var ledge2 = platforms.create(0, 11, 'ground');
     
-    platforms.scale.setTo(2, 2)
+    platforms.scale.setTo(1, 1)
     
     // Enable physics on the platforms so you can collide with them
     game.physics.arcade.enable(platforms);
