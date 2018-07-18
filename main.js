@@ -2,7 +2,7 @@ var game = new Phaser.Game(800, 650, Phaser.AUTO, 'game-div', { preload: preload
 
 function preload() {
 
-    game.load.spritesheet('mc', 'spreadsheets/running-animation.png', 320, 320);
+    game.load.spritesheet('mc', 'spreadsheets/running-animation.png', 180, 290);
     game.load.image('background', 'spreadsheets/background.png');
     game.load.image('ground', 'spreadsheets/platform2.png');
 
