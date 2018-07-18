@@ -25,6 +25,7 @@ function create() {
     
     // Here we create the ground.
     ground = platforms.create(0, game.world.height - 60, 'ground');
+    ground = platforms.create(0, game.world.height - 60, 'ground');
     
     //  Double the size of the platform (vertically by 2 and horizontally by 2)
     ground.scale.setTo(1, 1);
