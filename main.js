@@ -54,8 +54,9 @@ function create() {
     player.animations.add('right', [7, 8, 9, 10, 12, 13], 10, true);
     
     //  Now let's create two ledges
-    var ledge1 = platforms.create(100, 0, 'ground');
-    var ledge2 = platforms.create(0, 100, 'ground');
+    var ledge1 = platforms.create(400, 400, 'ground');
+    var ledge2 = platforms.create(50, 200, 'ground');
+    var ledge3 = platforms.create(100, 200, 'ground');
     
     // Enable physics on the platforms so you can collide with them
     game.physics.arcade.enable(platforms);
@@ -63,6 +64,7 @@ function create() {
     // Prevent the ledges from moving
     ledge1.body.immovable = true;
     ledge2.body.immovable = true;
+    ledge3.body.immovable = true;
 }
 
 function update() {
