@@ -2,7 +2,7 @@ var game = new Phaser.Game(800, 650, Phaser.AUTO, 'game-div', { preload: preload
 
 function preload() {
 
-    game.load.spritesheet('mc', 'spreadsheets/running-animation.png', 180, 290);
+    game.load.spritesheet('mc', 'spreadsheets/running-animation.png', 220, 290);
     game.load.image('background', 'spreadsheets/background.png');
     game.load.image('ground', 'spreadsheets/platform2.png');
 
@@ -53,9 +53,9 @@ function create() {
     player.animations.add('right', [7, 8, 9, 10, 12, 13], 10, true);
     
     //  Now let's create two ledges
-    var ledge1 = platforms.create(400, 400, 'ground');
-    var ledge2 = platforms.create(50, 200, 'ground');
-    var ledge3 = platforms.create(600, 200, 'ground');
+    var ledge1 = platforms.create(400, 450, 'ground');
+    var ledge2 = platforms.create(50, 250, 'ground');
+    var ledge3 = platforms.create(600, 250, 'ground');
     
     // Enable physics on the platforms so you can collide with them
     game.physics.arcade.enable(platforms);
