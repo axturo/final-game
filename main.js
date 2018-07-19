@@ -55,7 +55,7 @@ function create() {
     //  Now let's create two ledges
     var ledge1 = platforms.create(400, 450, 'ground');
     var ledge2 = platforms.create(50, 250, 'ground');
-    var ledge3 = platforms.create(600, 250, 'ground');
+    var ledge3 = platforms.create(500, 150, 'ground');
     
     // Enable physics on the platforms so you can collide with them
     game.physics.arcade.enable(platforms);
