@@ -10,7 +10,9 @@ function preload() {
 }
 
 var keys;
+var enemy;
 var player;
+var enemy; 
 var ground;
 var platforms;
 
@@ -40,7 +42,7 @@ function create() {
     rightButton = game.input.keyboard.addKey(Phaser.Keyboard.D);
     
     player.animations.add('left', [0, 1, 2, 3, 4, 5], 10, true);
-    player.animations.add('right', [8, 9, 10, 12, 13], 10, true);
+    player.animations.add('right', [8, 9, 10, 12, 13], 9, true);
     player.animations.add('idle', [6, 7], 2,  true);
     
     var ledge1 = platforms.create(400, 450, 'ground');
@@ -52,9 +54,31 @@ function create() {
     ledge1.body.immovable = true;
     ledge2.body.immovable = true;
     ledge3.body.immovable = true;
+    
+    enemy = game.add.sprite(400, 400, 'enemy');
+    enemy.animations.add('left', [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], true);
+    enemy.animations.add('right', [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], true);
+    enemy.scale.setTo(0.2, 0.2);
+    
 }
 
 function update() {
+    
+    game.physics.arcade.collide(this, platforms, function (enemy, platform) {
+        // if slime is moving to the right, 
+        // check if its position greater than the width of the platform minus its width
+        // if slime is moving to the left, 
+        // check if its position exceeds the left-most point of the platform
+        if (enemy.body.velocity.x > 0 && enemy.x > platform.x + (platform.width - enemy.width) ||
+                enemy.body.velocity.x < 0 && enemy.x < platform.x) {
+            enemy.body.velocity.x *= -1; 
+        } 
+        if (enemy.body.velocity.x > 0) {
+            enemy.animations.play('right');
+        } else {
+            enemy.animations.play('left');
+        }
+    });    
     
     game.physics.arcade.collide(player, ground);
     game.physics.arcade.collide(player, platforms);
