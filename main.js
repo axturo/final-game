@@ -5,7 +5,8 @@ function preload() {
     game.load.spritesheet('mc', 'spreadsheets/running-animation.png', 320, 320);
     game.load.image('background', 'spreadsheets/background.png');
     game.load.image('ground', 'spreadsheets/platform2.png');
-
+    game.load.tilemap('level1', 'thenon-organic life of solace.json', null, Phaser.Tilemap.TILED_JSON);
+    game.load.image('tiles', 'thenon-organic life of solace.png');
 }
 
 var keys;
@@ -20,6 +21,11 @@ function create() {
     background.height = game.height;
     background.width = game.width;
     background.smoothed = false;
+    
+    map = game.add.tilemap('level1');
+    map.addTilesetImage('lifeofsolace3.0', 'tiles');
+    
+    map.createLayer('Tile Layer 1');
     
     platforms = game.add.group();
     
