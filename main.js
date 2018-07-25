@@ -18,11 +18,15 @@ var platforms;
 
 function create() {
     
+    // background code
+    
     background = game.add.sprite(0, 0, 'background');
     
     background.height = game.height;
     background.width = game.width;
     background.smoothed = false;
+    
+    // adding platforms code
     
     platforms = game.add.group();
     ground = platforms.create(0, game.world.height - 60, 'ground');
@@ -30,10 +34,14 @@ function create() {
     game.physics.arcade.enable(ground);
     ground.body.immovable = true;
     
+    // creating the player - code
+    
     player = game.add.sprite(32, game.world.height - 150, 'mc');
     player.scale.setTo(0.2,0.2);
     game.physics.arcade.enable(player);
     player.body.gravity.y = 2000;
+    
+    // controls - WASD
     
     game.input.keyboard.createCursorKeys();
     upButton = game.input.keyboard.addKey(Phaser.Keyboard.W);
@@ -41,9 +49,13 @@ function create() {
     leftButton = game.input.keyboard.addKey(Phaser.Keyboard.A);
     rightButton = game.input.keyboard.addKey(Phaser.Keyboard.D);
     
+    // player animation
+    
     player.animations.add('left', [0, 1, 2, 3, 4, 5], 10, true);
     player.animations.add('right', [8, 9, 10, 12, 13], 9, true);
     player.animations.add('idle', [6, 7], 2,  true);
+    
+    // creating platforms
     
     var ledge1 = platforms.create(400, 450, 'ground');
     var ledge2 = platforms.create(50, 250, 'ground');
@@ -54,6 +66,8 @@ function create() {
     ledge1.body.immovable = true;
     ledge2.body.immovable = true;
     ledge3.body.immovable = true;
+    
+    // creating enemies
     
     enemies = game.add.group();
     
@@ -71,12 +85,13 @@ function create() {
         enemy.body.gravity.y = 2000;
         enemy.body.velocity.x = -100;
     });
-  
+    
+    
 }
 
 function update() {
     
-//    game.physics.arcade.collide(enemies, platforms);
+    // virus physics!
     
     game.physics.arcade.collide(enemies, platforms, function (enemy, platform) {
         if (enemy.body.velocity.x > 0 && enemy.x > platform.x + (platform.width - enemy.width) ||
@@ -88,7 +103,9 @@ function update() {
         } else {
             enemy.animations.play('left');
         }
-    });    
+    });   
+    
+    // player physics
 
     game.physics.arcade.collide(player, ground);
     game.physics.arcade.collide(player, platforms);
