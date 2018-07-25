@@ -74,8 +74,11 @@ function update() {
         player.animations.play('idle');
     }
     
-    if (upButton.isDown && player.body.touching.down) {
+    if (upButton.isDown && player.body.touching.down) 
         player.body.velocity.y = -950;
-    }
 }
+    
+    
+    
+
 
