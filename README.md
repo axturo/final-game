@@ -1,13 +1,14 @@
 # final-game
 
->Gaybe
+> ### Gaybe
 
 i'm suffering. this is difficult and javascript is hard
 
->Melanie
+> ### Melanie
 
 tba
 
->Arturo
+> ### Arturo
 
-tba
+index gif:
+https://giphy.com/gifs/animation-animated-gif-xTiTnxpQ3ghPiB2Hp6

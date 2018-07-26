@@ -1,4 +1,4 @@
-var game = new Phaser.Game(800, 650, Phaser.AUTO, 'game-div', { preload: preload, create: create, update: update });
+var game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, 'game-div', { preload: preload, create: create, update: update });
 
 function preload() {
 
@@ -23,6 +23,7 @@ var platforms;
 
 function create() {
     
+    // background
     
     background = game.add.sprite(0, 0, 'background');
     
@@ -30,21 +31,29 @@ function create() {
     background.width = game.width;
     background.smoothed = false;
     
+    // map
+    
     map = game.add.tilemap('level1');
     map.addTilesetImage('lifeofsolace3.0', 'tiles');
     
     map.createLayer('Tile Layer 1');
     
+    // creating platforms
+    
     platforms = game.add.group();
-    ground = platforms.create(0, game.world.height - 60, 'ground');
+    ground = platforms.create(0, game.world.height - 100, 'ground');
     ground.scale.setTo(1, 1);
     game.physics.arcade.enable(ground);
     ground.body.immovable = true;
     
-    player = game.add.sprite(32, game.world.height - 150, 'mc');
+    // creating player
+    
+    player = game.add.sprite(32, game.world.height - 175, 'mc');
     player.scale.setTo(0.2,0.2);
     game.physics.arcade.enable(player);
     player.body.gravity.y = 2000;
+    
+    // controls
     
     game.input.keyboard.createCursorKeys();
     upButton = game.input.keyboard.addKey(Phaser.Keyboard.W);
@@ -52,17 +61,24 @@ function create() {
     leftButton = game.input.keyboard.addKey(Phaser.Keyboard.A);
     rightButton = game.input.keyboard.addKey(Phaser.Keyboard.D);
     
+    // player animations
+    
     player.animations.add('left', [0, 1, 2, 3, 4, 5], 10, true);
     player.animations.add('right', [8, 9, 10, 12, 13], 10, true);
     player.animations.add('idle', [6, 7], 2,  true);
+    game.camera.follow(player); 
+    
+    // code creating ledges
     
     var ledge1 = platforms.create(400, 450, 'ground');
     var ledge2 = platforms.create(50, 250, 'ground');
     var ledge3 = platforms.create(500, 150, 'ground');
     
+    // map creating ledges
+    
     map.createFromObjects('The platform layer', 'platform', 'ground', 0, true, false, platforms, undefined, false);
     
-
+    // physics
     
     game.physics.arcade.enable(platforms);
     
@@ -104,15 +120,22 @@ function create() {
     game.physics.arcade.enable(commons);
     
     game.world.setBounds(0, 0, 3200, 3200);
+<<<<<<< HEAD
     
     game.camera.follow(player);  
+=======
+     
+>>>>>>> a01041d306b096210985a0bff9bce4dff968d853
     commons.callAll('animations.play', 'animations', 'float');
-    commons.forEach(function(common) {
-        commons.scale.setTo(0.2, 0.2);
-        commons.body.gravity.y = 2000;
-        commons.body.velocity.x = -100;
+    common.forEach(function(common) {
+        common.scale.setTo(0.2, 0.2);
+        common.body.gravity.y = 2000;
+        common.body.velocity.x = -100;
     });
+<<<<<<< HEAD
     
+=======
+>>>>>>> a01041d306b096210985a0bff9bce4dff968d853
 }
 
 function update() {
@@ -163,6 +186,7 @@ function update() {
         player.animations.play('idle');
     }
     
-    if (upButton.isDown && player.body.touching.down) 
+    if (upButton.isDown && player.body.touching.down) { 
         player.body.velocity.y = -950;
+    }
 }
