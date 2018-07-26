@@ -48,7 +48,7 @@ function create() {
     
     // creating player
     
-    player = game.add.sprite(32, 525, 'mc');
+    player = game.add.sprite(32, 500, 'mc');
     player.scale.setTo(0.2,0.2);
     game.physics.arcade.enable(player);
     player.body.gravity.y = 2000;
