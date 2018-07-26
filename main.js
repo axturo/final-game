@@ -4,7 +4,11 @@ function preload() {
 
     game.load.spritesheet('mc', 'spreadsheets/running-animation.png', 220, 290);
     game.load.image('background', 'spreadsheets/background.png');
-    game.load.image('ground', 'spreadsheets/platform2.png');
+    game.load.spritesheet('ground', 'spreadsheets/platform2.png', 320, 60);
+ 
+    game.load.tilemap('level1', 'thenon-organic life of solace.json', null, Phaser.Tilemap.TILED_JSON);
+    game.load.image('tiles', 'lifeofsolace3.0.png');
+
     game.load.spritesheet('enemy', 'spreadsheets/common-enemy.png', 250, 310);
     game.load.spritesheet('common', 'spreadsheets/common-sprite.png', 250, 310);
     
@@ -19,11 +23,17 @@ var platforms;
 
 function create() {
     
+    
     background = game.add.sprite(0, 0, 'background');
     
     background.height = game.height;
     background.width = game.width;
     background.smoothed = false;
+    
+    map = game.add.tilemap('level1');
+    map.addTilesetImage('lifeofsolace3.0', 'tiles');
+    
+    map.createLayer('Tile Layer 1');
     
     platforms = game.add.group();
     ground = platforms.create(0, game.world.height - 60, 'ground');
@@ -50,7 +60,15 @@ function create() {
     var ledge2 = platforms.create(50, 250, 'ground');
     var ledge3 = platforms.create(500, 150, 'ground');
     
+    map.createFromObjects('The platform layer', 'platform', 'ground', 0, true, false, platforms, undefined, false);
+    
+
+    
     game.physics.arcade.enable(platforms);
+    
+    platforms.forEach(function(platform) {
+        platform.body.immovable=true
+    })
     
     ledge1.body.immovable = true;
     ledge2.body.immovable = true;
@@ -85,12 +103,23 @@ function create() {
     
     game.physics.arcade.enable(commons);
     
+<<<<<<< HEAD
+    game.world.setBounds(0, 0, 3200, 3200);
+    
+    game.camera.follow(player);  
+=======
     commons.callAll('animations.play', 'animations', 'float');
     commons.forEach(function(common) {
         commons.scale.setTo(0.2, 0.2);
         commons.body.gravity.y = 2000;
         commons.body.velocity.x = -100;
     });
+<<<<<<< HEAD
+=======
+    
+>>>>>>> efb6d1e3bba459170517db7b85bfd802bf86e5e5
+>>>>>>> d853cd15d8369b528b40b06cff34c8e296671986
+>>>>>>> 7bcb84a06dade4e2953fd4507ad9be9fa04c3a7f
 }
 
 function update() {
