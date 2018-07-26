@@ -6,16 +6,10 @@ function preload() {
     game.load.image('background', 'spreadsheets/background.png');
     game.load.image('ground', 'spreadsheets/platform2.png');
     game.load.spritesheet('enemy', 'spreadsheets/common-enemy.png', 250, 310);
-    game.load.spritesheet('common', 'spreadsheets/common-sprite.png', 250, 310);
-    
+
 }
 
 var keys;
-<<<<<<< HEAD
-=======
-var enemy;
-var common;
->>>>>>> efb6d1e3bba459170517db7b85bfd802bf86e5e5
 var player;
 var ground;
 var platforms;
@@ -23,7 +17,7 @@ var platforms;
 function create() {
     
     background = game.add.sprite(0, 0, 'background');
-    
+
     background.height = game.height;
     background.width = game.width;
     background.smoothed = false;
@@ -58,81 +52,10 @@ function create() {
     ledge1.body.immovable = true;
     ledge2.body.immovable = true;
     ledge3.body.immovable = true;
-<<<<<<< HEAD
-=======
-    
-    // creating enemies
-    
-    enemies = game.add.group();
-    
-    enemies.create(550, 390, 'enemy');
-    enemies.create(100, 185, 'enemy');
-    enemies.create(600, 85, 'enemy');
-    
-    enemies.callAll('animations.add', 'animations', 'float', [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], 12, true)
-    
-    game.physics.arcade.enable(enemies);
-    
-    enemies.callAll('animations.play', 'animations', 'float');
-    enemies.forEach(function(enemy) {
-        enemy.scale.setTo(0.15, 0.15);
-        enemy.body.gravity.y = 2000;
-        enemy.body.velocity.x = -100;
-    });
-    
-    // creating the common little dudes
-    
-    commons = game.add.group();
-    
-    commons.create(1000, 2640, 'common');
-    
-    commons.callAll('animations.add', 'animations', 'float', [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], 12, true)
-    
-    game.physics.arcade.enable(commons);
-    
-    commons.callAll('animations.play', 'animations', 'float');
-    commons.forEach(function(common) {
-        commons.scale.setTo(0.2, 0.2);
-        commons.body.gravity.y = 2000;
-        commons.body.velocity.x = -100;
-    });
-    
->>>>>>> efb6d1e3bba459170517db7b85bfd802bf86e5e5
 }
 
 function update() {
     
-<<<<<<< HEAD
-=======
-    // virus physics!
-    
-    game.physics.arcade.collide(enemies, platforms, function (enemy, platform) {
-        if (enemy.body.velocity.x > 0 && enemy.x > platform.x + (platform.width - enemy.width) ||
-                enemy.body.velocity.x < 0 && enemy.x < platform.x) {
-            enemy.body.velocity.x *= -1; 
-        } 
-        if (enemy.body.velocity.x > 0) {
-            enemy.animations.play('right');
-        } else {
-            enemy.animations.play('left');
-        }
-    });   
-    
-    // common little dudes physics!
-    
-    game.physics.arcade.collide(commons, platforms, function (common, platform) {
-        if (common.common.velocity.x > 0 && common.x > platform.x + (platform.width - common.width) ||
-                common.body.velocity.x < 0 && common.x < platform.x) {
-            common.body.velocity.x *= -1; 
-        } 
-        if (common.body.velocity.x = 0) {
-            common.animations.play('idle');
-        }
-    });   
-    
-    // player physics
-
->>>>>>> efb6d1e3bba459170517db7b85bfd802bf86e5e5
     game.physics.arcade.collide(player, ground);
     game.physics.arcade.collide(player, platforms);
     
@@ -154,10 +77,7 @@ function update() {
     if (upButton.isDown && player.body.touching.down) 
         player.body.velocity.y = -950;
 }
-<<<<<<< HEAD
 
 
 
 
-=======
->>>>>>> efb6d1e3bba459170517db7b85bfd802bf86e5e5

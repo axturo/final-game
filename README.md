@@ -10,4 +10,6 @@ tba
 
 >Arturo
 
-tba
+Audio: 
+* SZA - Anything (Official Instrumental)
+* Binary Code High Tech Interferance 
