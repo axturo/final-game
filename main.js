@@ -1,4 +1,4 @@
-var game = new Phaser.Game(800, 650, Phaser.AUTO, 'game-div', { preload: preload, create: create, update: update });
+var game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, 'game-div', { preload: preload, create: create, update: update });
 
 function preload() {
 
@@ -36,12 +36,12 @@ function create() {
     map.createLayer('Tile Layer 1');
     
     platforms = game.add.group();
-    ground = platforms.create(0, game.world.height - 60, 'ground');
+    ground = platforms.create(0, game.world.height - 100, 'ground');
     ground.scale.setTo(1, 1);
     game.physics.arcade.enable(ground);
     ground.body.immovable = true;
     
-    player = game.add.sprite(32, game.world.height - 150, 'mc');
+    player = game.add.sprite(32, game.world.height - 175, 'mc');
     player.scale.setTo(0.2,0.2);
     game.physics.arcade.enable(player);
     player.body.gravity.y = 2000;
@@ -106,9 +106,9 @@ function create() {
     game.camera.follow(player);  
     commons.callAll('animations.play', 'animations', 'float');
     commons.forEach(function(common) {
-        commons.scale.setTo(0.2, 0.2);
-        commons.body.gravity.y = 2000;
-        commons.body.velocity.x = -100;
+        common.scale.setTo(0.2, 0.2);
+        common.body.gravity.y = 2000;
+        common.body.velocity.x = -100;
     });
 }
 
@@ -162,4 +162,5 @@ function update() {
     
     if (upButton.isDown && player.body.touching.down) { 
         player.body.velocity.y = -950;
+    }
 }
