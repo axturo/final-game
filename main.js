@@ -10,13 +10,17 @@ function preload() {
     game.load.image('tiles', 'lifeofsolace3.0.png');
 
     game.load.spritesheet('enemy', 'spreadsheets/common-enemy.png', 250, 310);
-
+    game.load.spritesheet('common', 'spreadsheets/common-sprite.png', 250, 310);
+    
 }
 
 var keys;
+<<<<<<< HEAD
+=======
 var enemy;
+var common;
+>>>>>>> efb6d1e3bba459170517db7b85bfd802bf86e5e5
 var player;
-var enemy; 
 var ground;
 var platforms;
 
@@ -52,7 +56,7 @@ function create() {
     rightButton = game.input.keyboard.addKey(Phaser.Keyboard.D);
     
     player.animations.add('left', [0, 1, 2, 3, 4, 5], 10, true);
-    player.animations.add('right', [8, 9, 10, 12, 13], 9, true);
+    player.animations.add('right', [8, 9, 10, 12, 13], 10, true);
     player.animations.add('idle', [6, 7], 2,  true);
     
     var ledge1 = platforms.create(400, 450, 'ground');
@@ -72,41 +76,61 @@ function create() {
     ledge1.body.immovable = true;
     ledge2.body.immovable = true;
     ledge3.body.immovable = true;
+<<<<<<< HEAD
+=======
     
-    enemy = game.add.sprite(550, 390, 'enemy');
-    enemy.animations.add([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], 10, true);
-    enemy.animations.add([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], 10, true);
-    enemy.scale.setTo(0.2, 0.2);
-    game.physics.arcade.enable(enemy);
-    enemy.body.gravity.y = 2000;
-    enemy.body.velocity.x = -100;
+    // creating enemies
     
-    enemy1 = game.add.sprite(100, 185, 'enemy');
-    enemy1.animations.add([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], 10, true);
-    enemy1.animations.add([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], 10, true);
-    enemy1.scale.setTo(0.2, 0.2);
-    game.physics.arcade.enable(enemy1);
-    enemy1.body.gravity.y = 2000;
-    enemy1.body.velocity.x = -125;    
-        
-    enemy2 = game.add.sprite(600, 85, 'enemy');
-    enemy2.animations.add([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], 10, true);
-    enemy2.animations.add([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], 10, true);
-    enemy2.scale.setTo(0.2, 0.2);
-    game.physics.arcade.enable(enemy2);
-    enemy2.body.gravity.y = 2000;
-    enemy2.body.velocity.x = -150;    
+    enemies = game.add.group();
     
+    enemies.create(550, 390, 'enemy');
+    enemies.create(100, 185, 'enemy');
+    enemies.create(600, 85, 'enemy');
+    
+    enemies.callAll('animations.add', 'animations', 'float', [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], 12, true)
+    
+    game.physics.arcade.enable(enemies);
+    
+    enemies.callAll('animations.play', 'animations', 'float');
+    enemies.forEach(function(enemy) {
+        enemy.scale.setTo(0.15, 0.15);
+        enemy.body.gravity.y = 2000;
+        enemy.body.velocity.x = -100;
+    });
+    
+    // creating the common little dudes
+    
+    commons = game.add.group();
+    
+    commons.create(1000, 2640, 'common');
+    
+    commons.callAll('animations.add', 'animations', 'float', [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], 12, true)
+    
+    game.physics.arcade.enable(commons);
+    
+<<<<<<< HEAD
     game.world.setBounds(0, 0, 3200, 3200);
     
     game.camera.follow(player);  
+=======
+    commons.callAll('animations.play', 'animations', 'float');
+    commons.forEach(function(common) {
+        commons.scale.setTo(0.2, 0.2);
+        commons.body.gravity.y = 2000;
+        commons.body.velocity.x = -100;
+    });
+    
+>>>>>>> efb6d1e3bba459170517db7b85bfd802bf86e5e5
+>>>>>>> d853cd15d8369b528b40b06cff34c8e296671986
 }
 
 function update() {
     
-    // enemy first ledge
+<<<<<<< HEAD
+=======
+    // virus physics!
     
-    game.physics.arcade.collide(enemy, platforms, function (enemy, platform) {
+    game.physics.arcade.collide(enemies, platforms, function (enemy, platform) {
         if (enemy.body.velocity.x > 0 && enemy.x > platform.x + (platform.width - enemy.width) ||
                 enemy.body.velocity.x < 0 && enemy.x < platform.x) {
             enemy.body.velocity.x *= -1; 
@@ -116,38 +140,23 @@ function update() {
         } else {
             enemy.animations.play('left');
         }
-    });    
+    });   
     
-    // enemy second ledge
+    // common little dudes physics!
     
-    game.physics.arcade.collide(enemy1, platforms, function (enemy, platform) {
-        if (enemy1.body.velocity.x > 0 && enemy1.x > platform.x + (platform.width - enemy1.width) ||
-                enemy1.body.velocity.x < 0 && enemy1.x < platform.x) {
-            enemy1.body.velocity.x *= -1; 
+    game.physics.arcade.collide(commons, platforms, function (common, platform) {
+        if (common.common.velocity.x > 0 && common.x > platform.x + (platform.width - common.width) ||
+                common.body.velocity.x < 0 && common.x < platform.x) {
+            common.body.velocity.x *= -1; 
         } 
-        if (enemy1.body.velocity.x > 0) {
-            enemy1.animations.play('right');
-        } else {
-            enemy1.animations.play('left');
+        if (common.body.velocity.x = 0) {
+            common.animations.play('idle');
         }
-    });    
+    });   
     
-    // enemy third ledge
-    
-    game.physics.arcade.collide(enemy2, platforms, function (enemy, platform) {
-        if (enemy2.body.velocity.x > 0 && enemy2.x > platform.x + (platform.width - enemy2.width) ||
-                enemy2.body.velocity.x < 0 && enemy2.x < platform.x) {
-            enemy2.body.velocity.x *= -1; 
-        } 
-        if (enemy2.body.velocity.x > 0) {
-            enemy2.animations.play('right');
-        } else {
-            enemy2.animations.play('left');
-        }
-    });    
-    
-//    game.physics.arcade.collide(enemy, platforms);
- 
+    // player physics
+
+>>>>>>> efb6d1e3bba459170517db7b85bfd802bf86e5e5
     game.physics.arcade.collide(player, ground);
     game.physics.arcade.collide(player, platforms);
     
@@ -166,8 +175,13 @@ function update() {
         player.animations.play('idle');
     }
     
-    if (upButton.isDown && player.body.touching.down) {
+    if (upButton.isDown && player.body.touching.down) 
         player.body.velocity.y = -950;
-    }
 }
+<<<<<<< HEAD
 
+
+
+
+=======
+>>>>>>> efb6d1e3bba459170517db7b85bfd802bf86e5e5

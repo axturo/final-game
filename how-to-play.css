@@ -1,0 +1,123 @@
+body{ 
+background-image:url(digital.gif);
+background-size: contain;
+font-size: white; 
+}
+.image-1{
+position: absolute;
+bottom: -10px;
+left: 1px;
+}
+.image-2{
+position: absolute;
+right: 0px;
+left: 600px;
+ bottom: -10px }  
+.image-3{ 
+position: absolute;
+right: 50px;
+left: 302px; 
+bottom: -10px
+}
+.image-4{ 
+position: absolute;
+right: 0px;
+left:900px; 
+bottom: -10px
+}
+.image-5{ 
+position: absolute;
+right: 0px;
+left:1200px; 
+bottom: -10px   
+}
+.image-6{ 
+position: absolute; 
+transform: rotate(90deg);
+left: 0px;
+bottom:40px; 
+}
+.image-7{
+position: absolute;
+transform: rotate(90deg);
+    left: 0px ;
+    top: 150px
+}
+.image-8{ 
+position: absolute;
+transform: rotate(90deg);
+left: 0px;
+top: 1px
+}
+.image-9{ 
+position: absolute;
+top: -280px;
+left:50px
+}
+.image-10{ 
+position: absolute;
+top: -280px;
+right:100px;
+left: 350px;
+}
+.image-11{ 
+position: absolute;
+top: -280px;
+right: 500px;
+}
+.image-12{ 
+position: fixed; 
+top: -280px;
+right: 200px;
+}
+.image-13{ 
+position: absolute; 
+top: -280px; 
+right: 3px
+}
+.image-14{ 
+position: absolute;
+transform: rotate(90deg);
+left: 1400px;
+top: 41px
+}
+.image-15{ 
+position: absolute;
+transform: rotate(90deg);
+left: 1400px;
+top: 150px
+}.image-16{ 
+position: absolute;
+transform: rotate(90deg);
+left: 1400px;
+bottom: 40px;
+top: 
+}
+h1{ 
+color: white;
+text-align: center; 
+position: absolute;
+bottom: 580px; 
+right: 60px;
+left: -20px;
+top; 1000px;
+font-size: 50px;
+font-family:'Audiowide', cursive;
+}
+ul{
+font-size: 20px;
+color: white;
+text-decoration: underline; 
+text-align: center;
+font-family: 'Audiowide', cursive;
+}
+div {
+    width: 320px;
+    padding: 50px;
+    border: 5px solid white;
+    margin: 300px;
+    bottom: 30px;
+    position: absolute;
+    right:4px;
+    left: 200px;
+}
