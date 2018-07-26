@@ -41,14 +41,14 @@ function create() {
     // creating platforms
     
     platforms = game.add.group();
-    ground = platforms.create(0, game.world.height - 100, 'ground');
+    ground = platforms.create(0, 600, 'ground');
     ground.scale.setTo(1, 1);
     game.physics.arcade.enable(ground);
     ground.body.immovable = true;
     
     // creating player
     
-    player = game.add.sprite(32, game.world.height - 175, 'mc');
+    player = game.add.sprite(32, 525, 'mc');
     player.scale.setTo(0.2,0.2);
     game.physics.arcade.enable(player);
     player.body.gravity.y = 2000;
