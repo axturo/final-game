@@ -6,11 +6,13 @@ function preload() {
     game.load.image('background', 'spreadsheets/background.png');
     game.load.spritesheet('ground', 'spreadsheets/animated-platform.png', 320, 60);
     game.load.spritesheet('enemy', 'spreadsheets/common-enemy.png', 250, 310);
-
+    game.load.spritesheet('common', 'spreadsheets/common-sprite.png', 250, 310);
+    
 }
 
 var keys;
 var enemy;
+var common;
 var player;
 var enemy; 
 var ground;
@@ -86,6 +88,22 @@ function create() {
         enemy.body.velocity.x = -100;
     });
     
+    // creating the common little dudes
+    
+    commons = game.add.group();
+    
+    commons.create(1000, 2640, 'common');
+    
+    commons.callAll('animations.add', 'animations', 'float', [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], 12, true)
+    
+    game.physics.arcade.enable(commons);
+    
+    commons.callAll('animations.play', 'animations', 'float');
+    commons.forEach(function(common) {
+        commons.scale.setTo(0.2, 0.2);
+        commons.body.gravity.y = 2000;
+        commons.body.velocity.x = -100;
+    });
     
 }
 
@@ -102,6 +120,18 @@ function update() {
             enemy.animations.play('right');
         } else {
             enemy.animations.play('left');
+        }
+    });   
+    
+    // common little dudes physics!
+    
+    game.physics.arcade.collide(commons, platforms, function (common, platform) {
+        if (common.common.velocity.x > 0 && common.x > platform.x + (platform.width - common.width) ||
+                common.body.velocity.x < 0 && common.x < platform.x) {
+            common.body.velocity.x *= -1; 
+        } 
+        if (common.body.velocity.x = 0) {
+            common.animations.play('idle');
         }
     });   
     
@@ -129,4 +159,3 @@ function update() {
         player.body.velocity.y = -950;
     }
 }
-
