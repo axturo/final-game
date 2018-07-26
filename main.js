@@ -113,7 +113,7 @@ function create() {
     
     commons = game.add.group();
     
-    commons.create(1000, 2640, 'common');
+    commons.create(100, 2640, 'common');
     
     commons.callAll('animations.add', 'animations', 'float', [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], 12, true)
     
