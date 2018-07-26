@@ -83,7 +83,7 @@ function create() {
     
     enemies.callAll('animations.play', 'animations', 'float');
     enemies.forEach(function(enemy) {
-        enemy.scale.setTo(0.2, 0.2);
+        enemy.scale.setTo(0.15, 0.15);
         enemy.body.gravity.y = 2000;
         enemy.body.velocity.x = -100;
     });
