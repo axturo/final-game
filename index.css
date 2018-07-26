@@ -11,6 +11,7 @@ font-family: 'VT323', monospace;
 text-decoration-color: blue;
 display: inline-block;
 text-decoration-style: wavy;
+
  
 }
 ul{
@@ -19,8 +20,9 @@ color: white;
 font-size: 50px; 
 font-family: 'VT323', monospace;
 text-align: center;
-right: 40%;
+right: 4%;
 left: 35%;
+bottom: 200px
 }
 a:link, a:visited {
     background-color:transparent;
@@ -36,6 +38,9 @@ a:link, a:visited {
 h1 {
     width: 1500px;
     height: 100px;
+    top:100px;
+    position: absolute; 
+    left: 200px;
     background-color: transparent;
     -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
     -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
@@ -146,6 +151,40 @@ left: 1485px;
 bottom: 7px; 
 right: -130px; 
 }
+.image-17{ 
+position: absolute;
+right:-30px;
+top:-280px;
+} 
+
+.image-18{ 
+position: absolute;
+right:-300px;
+top:-280px; 
+}
+.image-19{ 
+position: absolute;
+right: 0px;
+left:1490px; 
+bottom: -10px  
+
+} 
+.image-20{ 
+position: absolute;
+transform: rotate(90deg);
+top: 150px;
+left: 0px;
+}
+.image-21{
+position: absolute;
+transform: rotate(270deg);
+top:190px;
+left: 1485;
+
+}
+
+
+
 a{ 
 color: white;
 }

@@ -11,7 +11,7 @@ function preload() {
 
     game.load.spritesheet('enemy', 'spreadsheets/common-enemy.png', 250, 310);
     game.load.spritesheet('common', 'spreadsheets/common-sprite.png', 250, 310);
-    
+
 }
 
 var keys;
@@ -26,7 +26,7 @@ function create() {
     // background
     
     background = game.add.sprite(0, 0, 'background');
-    
+
     background.height = game.height;
     background.width = game.width;
     background.smoothed = false;
@@ -89,7 +89,7 @@ function create() {
     ledge1.body.immovable = true;
     ledge2.body.immovable = true;
     ledge3.body.immovable = true;
-    
+
     // creating enemies
     
     enemies = game.add.group();
@@ -120,9 +120,13 @@ function create() {
     game.physics.arcade.enable(commons);
     
     game.world.setBounds(0, 0, 3200, 1000);
+<<<<<<< HEAD
      
+=======
+
+>>>>>>> 3bc60efa17be3f6db416e6e525c1f1a62b18f1ef
     commons.callAll('animations.play', 'animations', 'float');
-    common.forEach(function(common) {
+    commons.forEach(function(common) {
         common.scale.setTo(0.2, 0.2);
         common.body.gravity.y = 2000;
         common.body.velocity.x = -100;
@@ -130,7 +134,6 @@ function create() {
 }
 
 function update() {
-    
     // virus physics!
     
     game.physics.arcade.collide(enemies, platforms, function (enemy, platform) {
@@ -158,7 +161,6 @@ function update() {
     });   
     
     // player physics
-
     game.physics.arcade.collide(player, ground);
     game.physics.arcade.collide(player, platforms);
     
