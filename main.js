@@ -10,15 +10,13 @@ function preload() {
     game.load.image('tiles', 'lifeofsolace3.0.png');
 
     game.load.spritesheet('enemy', 'spreadsheets/common-enemy.png', 250, 310);
+    game.load.spritesheet('common', 'spreadsheets/common-sprite.png', 250, 310);
 
 }
 
 var keys;
-<<<<<<< HEAD
-=======
 var enemy;
 var common;
->>>>>>> 25e432c2dfc4245d18436741e2f5a31635d71752
 var player;
 var ground;
 var platforms;
@@ -91,9 +89,7 @@ function create() {
     ledge1.body.immovable = true;
     ledge2.body.immovable = true;
     ledge3.body.immovable = true;
-<<<<<<< HEAD
-=======
-    
+
     // creating enemies
     
     enemies = game.add.group();
@@ -123,30 +119,17 @@ function create() {
     
     game.physics.arcade.enable(commons);
     
-    game.world.setBounds(0, 0, 3200, 3200);
-<<<<<<< HEAD
-    
-    game.camera.follow(player);  
-=======
-     
->>>>>>> a01041d306b096210985a0bff9bce4dff968d853
+    game.world.setBounds(0, 0, 3200, 1000);
+
     commons.callAll('animations.play', 'animations', 'float');
-    common.forEach(function(common) {
+    commons.forEach(function(common) {
         common.scale.setTo(0.2, 0.2);
         common.body.gravity.y = 2000;
         common.body.velocity.x = -100;
     });
-<<<<<<< HEAD
-    
-=======
->>>>>>> a01041d306b096210985a0bff9bce4dff968d853
->>>>>>> 25e432c2dfc4245d18436741e2f5a31635d71752
 }
 
 function update() {
-    
-<<<<<<< HEAD
-=======
     // virus physics!
     
     game.physics.arcade.collide(enemies, platforms, function (enemy, platform) {
@@ -174,8 +157,6 @@ function update() {
     });   
     
     // player physics
-
->>>>>>> 25e432c2dfc4245d18436741e2f5a31635d71752
     game.physics.arcade.collide(player, ground);
     game.physics.arcade.collide(player, platforms);
     
@@ -198,10 +179,3 @@ function update() {
         player.body.velocity.y = -950;
     }
 }
-<<<<<<< HEAD
-
-
-
-
-=======
->>>>>>> 25e432c2dfc4245d18436741e2f5a31635d71752
