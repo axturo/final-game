@@ -11,11 +11,8 @@ function preload() {
 }
 
 var keys;
-<<<<<<< HEAD
-=======
 var enemy;
 var common;
->>>>>>> efb6d1e3bba459170517db7b85bfd802bf86e5e5
 var player;
 var ground;
 var platforms;
@@ -58,8 +55,6 @@ function create() {
     ledge1.body.immovable = true;
     ledge2.body.immovable = true;
     ledge3.body.immovable = true;
-<<<<<<< HEAD
-=======
     
     // creating enemies
     
@@ -96,14 +91,10 @@ function create() {
         commons.body.gravity.y = 2000;
         commons.body.velocity.x = -100;
     });
-    
->>>>>>> efb6d1e3bba459170517db7b85bfd802bf86e5e5
 }
 
 function update() {
     
-<<<<<<< HEAD
-=======
     // virus physics!
     
     game.physics.arcade.collide(enemies, platforms, function (enemy, platform) {
@@ -132,7 +123,6 @@ function update() {
     
     // player physics
 
->>>>>>> efb6d1e3bba459170517db7b85bfd802bf86e5e5
     game.physics.arcade.collide(player, ground);
     game.physics.arcade.collide(player, platforms);
     
@@ -154,10 +144,3 @@ function update() {
     if (upButton.isDown && player.body.touching.down) 
         player.body.velocity.y = -950;
 }
-<<<<<<< HEAD
-
-
-
-
-=======
->>>>>>> efb6d1e3bba459170517db7b85bfd802bf86e5e5
