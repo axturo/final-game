@@ -110,6 +110,7 @@ function create() {
         commons.body.gravity.y = 2000;
         commons.body.velocity.x = -100;
     });
+}
 
 function update() {
     
@@ -161,4 +162,4 @@ function update() {
     
     if (upButton.isDown && player.body.touching.down) { 
         player.body.velocity.y = -950;
-    }
+}
