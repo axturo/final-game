@@ -1,0 +1,153 @@
+body{ 
+background-image:url(digital.gif);
+background-size: contain;
+font-size: white; 
+}
+h1{ 
+color: white;
+font-size: 80;
+text-align: center;
+font-family: 'VT323', monospace;
+text-decoration-color: blue;
+display: inline-block;
+text-decoration-style: wavy;
+ 
+}
+ul{position: fixed;
+color: white;
+font-size: 50px; 
+font-family: 'VT323', monospace;
+text-align: center;
+right: 40%;
+left: 35%;
+}
+a:link, a:visited {
+    background-color:transparent;
+    color: white;
+    padding: 20px 10px;
+    text-align: center; 
+    text-decoration:underline;
+    text-decoration-color: blue;
+    display: inline-block;
+    text-decoration-style: wavy;
+    padding-bottom: 20px;
+}
+h1 {
+    width: 1500px;
+    height: 100px;
+    background-color: transparent;
+    -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+    animation-name: example;
+    animation-duration: 4s;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes example {
+    from {background-color: transparent;}
+    to {background-color: transparent;}
+}
+
+/* Standard syntax */
+@keyframes example {
+    from {background-color: transparent;}
+    to {background-color:transparent;}
+}
+.image-1{
+position: absolute;
+bottom: -10px;
+left: 1px;
+}
+.image-2{
+    position: absolute;
+    right: 0px;
+    left: 600px;
+    bottom: -10px  
+}
+.image-3{ 
+position: absolute;
+right: 50px;
+left: 302px; 
+bottom: -10px
+}
+.image-4{ 
+position: absolute;
+right: 0px;
+left:900px; 
+bottom: -10px
+}
+.image-5{ 
+position: absolute;
+right: 0px;
+left:1200px; 
+bottom: -10px   
+}
+.image-6{ 
+position: absolute; 
+transform: rotate(90deg);
+left: 0px;
+bottom:40px; 
+}
+.image-7{
+position: absolute;
+transform: rotate(90deg);
+    left: 0px ;
+    bottom 70px;
+}
+.image-8{ 
+position: absolute;
+transform: rotate(90deg);
+left: 0px;
+top: 1px
+}
+.image-9{ 
+position: absolute;
+top: -280px;
+left:50px
+}
+.image-10{ 
+position: absolute;
+top: -280px;
+right:100px;
+left: 350px;
+}
+.image-11{ 
+position: absolute;
+top: -280px;
+right: 500px;
+}
+.image-12{ 
+position: fixed; 
+top: -280px;
+right: 200px;
+}
+.image-13{ 
+position: absolute; 
+top: -280px; 
+right: 3px
+}
+.image-14{ 
+position: absolute;
+transform: rotate(90deg);
+left: 1385px;
+top: 41px
+}
+.image-15{ 
+position: absolute;
+transform: rotate(90deg);
+left: 1385px;
+top: 90ppx
+}.image-16{ 
+position: absolute;
+transform: rotate(90deg);
+left: 1385px;
+bottom: 7px
+}
+a{ 
+color: white;
+}
+
+
+    
+
+
