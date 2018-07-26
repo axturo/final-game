@@ -13,7 +13,8 @@ display: inline-block;
 text-decoration-style: wavy;
  
 }
-ul{position: fixed;
+ul{
+position: absolute;
 color: white;
 font-size: 50px; 
 font-family: 'VT323', monospace;
@@ -117,31 +118,33 @@ top: -280px;
 right: 500px;
 }
 .image-12{ 
-position: fixed; 
+position: absolute; 
 top: -280px;
 right: 200px;
 }
 .image-13{ 
 position: absolute; 
 top: -280px; 
-right: 3px
+left: -100px;
+right: 290px;
 }
 .image-14{ 
 position: absolute;
-transform: rotate(90deg);
-left: 1385px;
-top: 41px
+transform: rotate(270deg);
+left: 1485px;
+top: 10px
 }
 .image-15{ 
 position: absolute;
-transform: rotate(90deg);
-left: 1385px;
+transform: rotate(270deg);
+left: 1485px;
 top: 90ppx
 }.image-16{ 
 position: absolute;
-transform: rotate(90deg);
-left: 1385px;
-bottom: 7px
+transform: rotate(270deg);
+left: 1485px;
+bottom: 7px; 
+right: -130px; 
 }
 a{ 
 color: white;
