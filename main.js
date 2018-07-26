@@ -62,8 +62,6 @@ function create() {
     
     map.createFromObjects('The platform layer', 'platform', 'ground', 0, true, false, platforms, undefined, false);
     
-
-    
     game.physics.arcade.enable(platforms);
     
     platforms.forEach(function(platform) {
@@ -103,24 +101,15 @@ function create() {
     
     game.physics.arcade.enable(commons);
     
-<<<<<<< HEAD
     game.world.setBounds(0, 0, 3200, 3200);
     
     game.camera.follow(player);  
-=======
     commons.callAll('animations.play', 'animations', 'float');
     commons.forEach(function(common) {
         commons.scale.setTo(0.2, 0.2);
         commons.body.gravity.y = 2000;
         commons.body.velocity.x = -100;
     });
-<<<<<<< HEAD
-=======
-    
->>>>>>> efb6d1e3bba459170517db7b85bfd802bf86e5e5
->>>>>>> d853cd15d8369b528b40b06cff34c8e296671986
->>>>>>> 7bcb84a06dade4e2953fd4507ad9be9fa04c3a7f
-}
 
 function update() {
     
@@ -170,6 +159,6 @@ function update() {
         player.animations.play('idle');
     }
     
-    if (upButton.isDown && player.body.touching.down) 
+    if (upButton.isDown && player.body.touching.down) { 
         player.body.velocity.y = -950;
-}
+    }
