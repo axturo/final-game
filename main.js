@@ -15,11 +15,8 @@ function preload() {
 }
 
 var keys;
-<<<<<<< HEAD
-=======
 var enemy;
 var common;
->>>>>>> efb6d1e3bba459170517db7b85bfd802bf86e5e5
 var player;
 var ground;
 var platforms;
@@ -76,8 +73,6 @@ function create() {
     ledge1.body.immovable = true;
     ledge2.body.immovable = true;
     ledge3.body.immovable = true;
-<<<<<<< HEAD
-=======
     
     // creating enemies
     
@@ -108,11 +103,9 @@ function create() {
     
     game.physics.arcade.enable(commons);
     
-<<<<<<< HEAD
     game.world.setBounds(0, 0, 3200, 3200);
     
     game.camera.follow(player);  
-=======
     commons.callAll('animations.play', 'animations', 'float');
     commons.forEach(function(common) {
         commons.scale.setTo(0.2, 0.2);
@@ -120,14 +113,10 @@ function create() {
         commons.body.velocity.x = -100;
     });
     
->>>>>>> efb6d1e3bba459170517db7b85bfd802bf86e5e5
->>>>>>> d853cd15d8369b528b40b06cff34c8e296671986
 }
 
 function update() {
     
-<<<<<<< HEAD
-=======
     // virus physics!
     
     game.physics.arcade.collide(enemies, platforms, function (enemy, platform) {
@@ -156,7 +145,6 @@ function update() {
     
     // player physics
 
->>>>>>> efb6d1e3bba459170517db7b85bfd802bf86e5e5
     game.physics.arcade.collide(player, ground);
     game.physics.arcade.collide(player, platforms);
     
@@ -178,10 +166,3 @@ function update() {
     if (upButton.isDown && player.body.touching.down) 
         player.body.velocity.y = -950;
 }
-<<<<<<< HEAD
-
-
-
-
-=======
->>>>>>> efb6d1e3bba459170517db7b85bfd802bf86e5e5
