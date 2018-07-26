@@ -120,11 +120,7 @@ function create() {
     game.physics.arcade.enable(commons);
     
     game.world.setBounds(0, 0, 3200, 1000);
-<<<<<<< HEAD
-     
-=======
 
->>>>>>> 3bc60efa17be3f6db416e6e525c1f1a62b18f1ef
     commons.callAll('animations.play', 'animations', 'float');
     commons.forEach(function(common) {
         common.scale.setTo(0.2, 0.2);
